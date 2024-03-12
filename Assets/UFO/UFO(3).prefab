@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1022092673049303277}
   - component: {fileID: 2883997446661448964}
   - component: {fileID: 4189982308790492268}
+  - component: {fileID: 3419030017013278837}
   m_Layer: 0
   m_Name: UFO(3)
   m_TagString: Enemy
@@ -100,3 +101,57 @@ MonoBehaviour:
   speed: 3
   health: 30
   points: 3
+--- !u!68 &3419030017013278837
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219390927924497477}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.0073631406, y: 0.42370516}
+  - {x: -0.12510014, y: 0.3509569}
+  - {x: -0.22838306, y: 0.2891454}
+  - {x: -0.3286879, y: 0.14536473}
+  - {x: -0.32165694, y: 0.0033150911}
+  - {x: -0.2472763, y: -0.065255225}
+  - {x: -0.26182508, y: -0.22611532}
+  - {x: -0.22879505, y: -0.35113874}
+  - {x: 0.033740282, y: -0.39490968}
+  - {x: 0.20067954, y: -0.3451881}
+  - {x: 0.21636653, y: -0.06782059}
+  - {x: 0.31351042, y: 0.0022722483}
+  - {x: 0.29492557, y: 0.23147467}
+  - {x: 0.14540792, y: 0.35151127}
+  - {x: 0.015590727, y: 0.40313694}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

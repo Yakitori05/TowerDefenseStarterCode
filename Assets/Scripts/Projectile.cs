@@ -7,18 +7,32 @@ public class Projectile : MonoBehaviour
     public Transform target;
     public float speed;
     public int damage;
-    // Start is called before the first frame update 
+
     void Start()
     {
-        // rotate the projectile towards the target 
+        if (target != null)
+        {
+            Vector3 direction = target.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
-    // Update is called once per frame 
+
     void Update()
     {
-        // When target is null, it no longer exists and this  
-        // object has to be removed 
-        // next, move the projectile towards the target 
-        // finally, check if the distance between this object and 
-        // the target is smaller than 0.2. If so, destroy this object. 
-    }   
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        transform.position =Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, target.position) < 0.2f)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
