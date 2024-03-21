@@ -1,0 +1,62 @@
+.button {
+    transform-origin: center;
+    background-color: rgb(128, 128, 128);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.button:hover {
+    background-color: rgba(128, 128, 128, 0.75);
+}
+
+.button:active {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.Abutton {
+    color: rgb(0, 0, 0);
+    background-color: rgb(49, 140, 0);
+}
+
+.Abutton:hover {
+    background-color: rgba(49, 140, 0, 0.75);
+}
+
+.Abutton:active {
+    background-color: rgba(49, 140, 0, 0.5);
+}
+
+.Mbutton {
+    background-color: rgb(7, 66, 179);
+}
+
+.Mbutton:hover {
+    background-color: rgba(7, 67, 179, 0.75);
+}
+
+.Mbutton:active {
+    background-color: rgba(7, 67, 179, 0.5);
+}
+
+.Ubutton {
+    background-color: rgb(217, 175, 5);
+}
+
+.Ubutton:hover {
+    background-color: rgba(217, 176, 6, 0.75);
+}
+
+.Ubutton:active {
+    background-color: rgba(217, 176, 6, 0.5);
+}
+
+.Dbutton {
+    background-color: rgb(255, 0, 0);
+}
+
+.Dbutton:hover {
+    background-color: rgba(255, 0, 0, 0.75);
+}
+
+.Dbutton:active {
+    background-color: rgba(255, 0, 0, 0.5);
+}

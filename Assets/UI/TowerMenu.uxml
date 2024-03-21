@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TowerMenu.uss?fileID=7433441132597879392&amp;guid=3645238c76ff1744c924e87e070c9702&amp;type=3#TowerMenu" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; width: 222px; margin-top: 0; background-color: rgba(0, 0, 0, 0.4); -unity-background-image-tint-color: rgba(0, 0, 0, 0.4); position: relative; align-items: center; justify-content: center;">
+            <ui:Button text="Baracks" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" class="button" />
+            <ui:Button text="Archer Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Abutton" />
+            <ui:Button text="Mage Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Mbutton" />
+            <ui:Button text="Upgrade" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Ubutton" />
+            <ui:Button text="Destroy" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Dbutton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
