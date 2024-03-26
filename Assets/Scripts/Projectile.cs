@@ -8,16 +8,6 @@ public class Projectile : MonoBehaviour
     public float speed;
     public int damage;
 
-    void Start()
-    {
-        if (target != null)
-        {
-            Vector3 direction = target.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
-    }
-
     void Update()
     {
 
@@ -27,11 +17,20 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        transform.position =Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        Vector2 direction = (target.position - transform.position).normalized;
+        transform.Translate(direction * speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, target.position) < 0.2f)
+        if (Vector2.Distance(transform.position, target.position) < 0.2f)
         {
+            DamageTarget();
             Destroy(gameObject);
+        }
+    }
+    void DamageTarget()
+    {
+        if (target != null && target.CompareTag("Enemy"))
+        {
+            target.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }

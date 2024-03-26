@@ -30,4 +30,18 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            GameManager.Instance.AddCreditsOnEnemyDestroy();
+            Destroy(gameObject);
+        }
+        // lower the health value 
+        // if health is smaller or equal to zero 
+        // destroy the game object 
+    }
 }

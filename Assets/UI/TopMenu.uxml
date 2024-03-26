@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TopMenu.uss?fileID=7433441132597879392&amp;guid=b893f78b6b1b9bc46b3d2f71d75b58d1&amp;type=3#TopMenu" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; align-self: flex-start; align-items: flex-start; width: 208px; height: 88px; top: 0; position: absolute; left: 0;">
+            <ui:Label tabindex="-1" text="Wave: 1&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-self: flex-start; margin-top: 4px; margin-right: 4px; margin-bottom: 2px; margin-left: 2px; right: auto; bottom: auto; position: absolute; left: 0; top: 0;" />
+            <ui:Label tabindex="-1" text="Credits: 0" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-self: flex-end; left: auto; bottom: auto; -unity-text-align: upper-center; position: absolute; top: 0; right: 0;" />
+            <ui:Label tabindex="-1" text="Gate health: 0" parse-escape-sequences="true" display-tooltip-when-elided="true" style="position: absolute; bottom: 0; right: 0;" />
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="button" style="right: auto; left: 0; bottom: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

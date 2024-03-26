@@ -1,44 +1,56 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class ConstructionSite
 {
-    public Vector3Int TilePosition { get; set; } // Tile Position of the construction site
-    public Vector3 WorldPosition { get; set; } // World Position of the construction site
-    public SiteLevel Level { get; private set; } // Level of the construction site
-    public TowerType TowerType { get; private set; } // Type of tower on the construction site
+    public Vector3Int TilePosition { get; private set; }
+    public Vector3 WorldPosition { get; private set; }
+    public SiteLevel Level { get; private set; }
+    public TowerType TowerType { get; private set; }
+    private GameObject tower;
 
-    private GameObject tower; // Reference to the tower GameObject placed on this construction site
-    public System.Action<GameObject> onDestroyTowerCallback;
-
-    public ConstructionSite(Vector3Int tilePosition, Vector3 worldPosition, System.Action<GameObject> onDestroyTower)
+    public ConstructionSite(Vector3Int tilePosition, Vector3 worldPosition)
     {
-        // Assign the tilePosition and adjust the worldPosition's y value by adding 0.5
-        this.TilePosition = tilePosition;
-        this.WorldPosition = worldPosition + new Vector3(0, 0.5f, 0);
-        this.Level = SiteLevel.Onbebouwd; // Assuming starting level is Empty
-        this.TowerType = TowerType; // Assuming no tower type initially
-        this.tower = null; // No tower initially placed
-        this.onDestroyTowerCallback = onDestroyTower;
+        TilePosition = tilePosition;
+        WorldPosition = worldPosition + new Vector3(0, 0.5f, 0); // Pas de hoogte aan
+        Level = SiteLevel.Onbebouwd;
+        tower = null;
     }
 
-    public void SetTower(GameObject towerPrefab, SiteLevel level, TowerType type)
+    public void SetTower(GameObject newTower, SiteLevel newLevel, TowerType newType)
     {
-        // Check if there's already a tower placed on this site
+        // Controleer of er al een toren op deze bouwplaats staat
         if (tower != null)
         {
-            onDestroyTowerCallback?.Invoke(tower);
-        }        
+            // Vernietig de bestaande toren voordat je een nieuwe bouwt
+            Object.Destroy(tower);
+        }
 
-        TowerPlacementManager.Instance.InstantiateTower(towerPrefab, WorldPosition, level, type);
-
-        // Assign the level and type of the tower
-        this.Level = level;
-        this.TowerType = type;
+        // Wijs de nieuwe toren toe
+        tower = newTower;
+        Level = newLevel;
+        TowerType = newType;
     }
 
+    public Vector3 GetBuildPosition()
+    {
+        return WorldPosition; // Gebruik de wereldpositie van de bouwplaats
+    }
 
+    // Methode om de toren op te halen
+    public GameObject GetTower()
+    {
+        return tower;
+    }
+
+    // Vermoedelijk heb je een methode nodig om het niveau van de bouwplaats in te stellen
+    public void SetLevel(SiteLevel newLevel)
+    {
+        Level = newLevel;
+    }
+
+    // Vermoedelijk heb je ook een methode nodig om het niveau van de bouwplaats op te halen
+    public SiteLevel GetLevel()
+    {
+        return Level;
+    }
 }

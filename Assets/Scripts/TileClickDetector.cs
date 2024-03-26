@@ -31,7 +31,7 @@ public class TileClickDetector : MonoBehaviour
                     TileBase foundTile = tilemap.GetTile(cellPosition); 
                     if (foundTile != null && foundTile.name == "buildingPlaceGrass") 
                     {
-                        sites.Add(new ConstructionSite(cellPosition, tilemap.CellToWorld(cellPosition), onDestroyTowerCallback));
+                        sites.Add(new ConstructionSite(cellPosition, tilemap.CellToWorld(cellPosition)));
 
                     }
                 } 

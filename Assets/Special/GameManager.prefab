@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7264881709536936515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4597885911862245665}
+  - component: {fileID: 4192731321738929008}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4597885911862245665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264881709536936515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.034383014, y: -0.23436579, z: -9.959109}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4192731321738929008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264881709536936515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7584a42d382248a49878a07140d0407b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerMenu: {fileID: 0}
+  Archertower:
+  - {fileID: 6366673476941057361, guid: 27a71ab951749a04abab2fef7733687e, type: 3}
+  - {fileID: 2754075296308723596, guid: bea1cc6833545be4d938c7031a0691d6, type: 3}
+  - {fileID: 8164024465313147356, guid: 3b485484981d8e34d9671fe43948b8eb, type: 3}
+  Barracks:
+  - {fileID: 3291804481357710974, guid: 5a34df6e954b0694f9258090b0cf0bdb, type: 3}
+  - {fileID: 8709373742348590690, guid: b48a33a55af0ac845a3b971b0fe98f39, type: 3}
+  - {fileID: 5648723482625944996, guid: 3483fda894c83914eabc538780887441, type: 3}
+  Wizzardtower:
+  - {fileID: 575061703200316761, guid: ce542f7a9d474d140aa3757ffbd2de5b, type: 3}
+  - {fileID: 691913435867708984, guid: cb48fba6b1204fa4b986f5013dd5018b, type: 3}
+  - {fileID: 317966184008448573, guid: 932d5de163e1107468794f3b29a0882a, type: 3}

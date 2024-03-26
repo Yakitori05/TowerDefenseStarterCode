@@ -1,12 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
-using static UnityEditor.VersionControl.Message;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -15,45 +9,74 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> Path1;
     public List<GameObject> Path2;
     public List<GameObject> Enemies;
-    // Start is called before the first frame update
-    void Start()
+
+    private Coroutine spawnCoroutine; // Store reference to the coroutine
+
+    private void Awake()
     {
-        Instance = this;
-        InvokeRepeating("SpawnTester", 1f, 1f);
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnWave(GameManager.WaveInfo wave)
     {
-        
+        // Stop any existing coroutine before starting a new one
+        if (spawnCoroutine != null)
+            StopCoroutine(spawnCoroutine);
+
+        // Start the coroutine for spawning enemies
+        spawnCoroutine = StartCoroutine(SpawnEnemies(wave));
+    }
+
+    private IEnumerator SpawnEnemies(GameManager.WaveInfo wave)
+    {
+        for (int i = 0; i < wave.enemyCount; i++)
+        {
+            // Spawn enemies of level 0 (or desired level) in the first wave
+            int enemyType = 0; // Only spawn enemies of level 0 in the first wave
+
+            // Randomly choose between Path1 and Path2
+            Path path = Random.Range(0, 2) == 0 ? Path.Path1 : Path.Path2;
+
+            SpawnEnemy(enemyType, path);
+            yield return new WaitForSeconds(1f); // Wait 1 second before spawning the next enemy
+        }
     }
 
     private void SpawnEnemy(int type, Path path)
     {
-        // Randomly choose between Path1 and Path2
-        Path selectedPath = UnityEngine.Random.Range(0, 2) == 0 ? Path.Path1 : Path.Path2;
-
-
-        var newEnemy = Instantiate(Enemies[type], Path1[0].transform.position, Path1[0].transform.rotation);
-        var script = newEnemy.GetComponentInParent<Enemy>();
-        // set hier het path en target voor je enemy in 
-        script.path = selectedPath; // Set the path
-        script.target = RequestTarget(selectedPath, 1);
-    }
-
-    private void SpawnTester()
-    {
-        SpawnEnemy(0, Path.Path1);
+        List<GameObject> selectedPath = path == Path.Path1 ? Path1 : Path2;
+        if (selectedPath.Count > 0)
+        {
+            var spawnPosition = selectedPath[0].transform.position;
+            var newEnemy = Instantiate(Enemies[type], spawnPosition, Quaternion.identity);
+            var script = newEnemy.GetComponent<Enemy>();
+            script.path = path;
+            script.target = selectedPath[1];
+            GameManager.Instance.AddInGameEnemy(); // Voeg deze regel toe om het aantal vijanden in het spel bij te houden
+        }
+        else
+        {
+            Debug.LogWarning("No path available for enemy spawn!");
+        }
     }
 
     public GameObject RequestTarget(Path path, int index)
     {
-        // schrijf deze code zelf 
         List<GameObject> selectedPath = path == Path.Path1 ? Path1 : Path2;
+
         if (index < selectedPath.Count)
             return selectedPath[index];
         else
             return null;
     }
 
+    private void OnDestroy()
+    {
+        // Ensure that the coroutine is stopped when the EnemySpawner is destroyed
+        if (spawnCoroutine != null)
+            StopCoroutine(spawnCoroutine);
+    }
 }

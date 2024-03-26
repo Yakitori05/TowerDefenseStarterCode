@@ -16,6 +16,11 @@ public class Towers : MonoBehaviour
     // Draw the attack range in the editor for easier debugging 
     private float NextAttackTime = 0f;
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, attackRange);
+    }
     void Update()
     {
         // Check if it's time to attack
@@ -58,11 +63,5 @@ public class Towers : MonoBehaviour
             projectile.target = enemy.transform;
             projectile.speed = ProjectileSpeed;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
